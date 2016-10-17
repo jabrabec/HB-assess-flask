@@ -9,12 +9,12 @@
     <div id="instructions"><p><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et dui augue. Donec ut dignissim nulla, quis pellentesque enim. In placerat arcu non pharetra aliquet. Morbi congue elit non magna sodales imperdiet. Curabitur purus diam, cursus in nulla quis, facilisis luctus odio. In tristique ultricies purus vel facilisis. Nulla ut ultrices est. Sed pharetra rutrum ante, ac fringilla velit. Nam faucibus justo non ipsum tincidunt condimentum.</span></p></div>
 
     <form action="/application" method="POST">
-        <div><label for="firstname">First name: </label><input type="text" name="firstname" id="firstname"></div>
-        <div><label for="lastname">Last name: </label><input type="text" name="lastname" id="lastname"></div>
-        <div><label for="salary">Salary requirement: </label><input type="number" min="0" name="salary" id="salary"></div>
+        <div><label for="firstname">First name: </label><input type="text" name="firstname" id="firstname" required></div>
+        <div><label for="lastname">Last name: </label><input type="text" name="lastname" id="lastname" required></div>
+        <div><label for="salary">Salary requirement: </label><input type="number" min="0" name="salary" id="salary" required></div>
         <div>
             <label for="jobapp">For which job are you applying?: </label>
-            <select name="job" id="jobapp">
+            <select name="job" id="jobapp" required>
                 <option value="Software Engineer">Software Engineer</option>
                 <option value="QA Engineer">QA Engineer</option>
                 <option value="Product Manager">Product Manager</option>

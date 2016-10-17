@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from flask_debugtoolbar import DebugToolbarExtension
-# import jinja2
+import jinja2
 
 app = Flask(__name__)
 
@@ -13,12 +13,12 @@ app.secret_key = "ABC"
 def index_page():
     """Show an index page."""
 
-    return "<html><body>This is the homepage.</body></html>"
+    # return "<html><body>This is the homepage.</body></html>"
 
     # Alternately, we could make this a Jinja template in `templates/`
     # and return that result of rendering this, like:
     #
-    # return render_template("index.html")
+    return render_template("index.html")
 
 
 @app.route("/application-form")
@@ -32,13 +32,18 @@ def application_form():
 def process_application():
     """Process the input from the application form and confirm receipt."""
 
-    first_name = request.form["firstname"]
-    last_name = request.form["lastname"]
-    job = request.form["job"]
-    salary = request.form["salary"]
+    # # alternate methods to retrieve POST input:
+    # first_name = request.form["firstname"]
+    # last_name = request.form["lastname"]
+    # job = request.form["job"]
+    # salary = request.form["salary"]
+    first_name = request.form.get("firstname")
+    last_name = request.form.get("lastname")
+    job = request.form.get("job")
+    salary = request.form.get("salary")
 
     return render_template("application-response.html", firstname=first_name,
-                            lastname=last_name, job=job, salary=salary)
+                           lastname=last_name, job=job, salary=salary)
 
 
 if __name__ == "__main__":
